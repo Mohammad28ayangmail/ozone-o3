@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ozone Layer Depletion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.nasa.gov/sites/default/files/thumbnails/image/ozone_depletion_nasa.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: rgba(0, 121, 107, 0.7);
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            text-align: center;
+            background-color: rgba(0, 77, 64, 0.8);
+            padding: 0.5em;
+        }
+        nav a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 2em;
+            line-height: 1.6;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+        }
+        .content h2 {
+            color: #80deea;
+        }
+        .fact-box {
+            background-color: #80deea;
+            border-left: 5px solid #00796b;
+            padding: 1em;
+            margin: 1.5em 0;
+        }
+        .fact-box p {
+            font-size: 1.1em;
+        }
+        footer {
+            background-color: rgba(0, 121, 107, 0.7);
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 0.8em 1.5em;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        .ozone-image {
+            display: block;
+            margin: 2em auto;
+            max-width: 100%;
+            height: auto;
+        }
+        .chart-container {
+            width: 80%;
+            margin: 2em auto;
+            padding: 1em;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Ozone Layer Depletion</h1>
+        <p>Learn about the depletion of the ozone layer and its impact on our planet</p>
+    </header>
+    <nav>
+        <a href="#intro">Introduction</a>
+        <a href="#causes">Causes</a>
+        <a href="#effects">Effects</a>
+        <a href="#solutions">Solutions</a>
+    </nav>
+    <div class="content" id="intro">
+        <h2>What is Ozone Layer Depletion?</h2>
+        <p>The ozone layer is a layer of ozone (O3) molecules located in the Earth's stratosphere. It plays a crucial role in protecting life on Earth by absorbing the majority of the Sun's harmful ultraviolet (UV) radiation.</p>
+        <p>However, human activities, particularly the use of certain chemicals like chlorofluorocarbons (CFCs), have caused significant damage to this protective layer, leading to depletion.</p>
+    </div>
+    <div class="content" id="causes">
+        <h2>Causes of Ozone Layer Depletion</h2>
+        <p>Human activities, especially industrial activities, have led to the release of chemicals such as CFCs, halons, and other ozone-depleting substances (ODS) into the atmosphere. These chemicals break down ozone molecules, thinning the ozone layer over time.</p>
+        <div class="fact-box">
+            <h3>Fun Fact:</h3>
+            <p>The Montreal Protocol, an international treaty signed in 1987, successfully reduced the use of many ozone-depleting chemicals.</p>
+        </div>
+    </div>
+    <div class="content" id="effects">
+        <h2>Effects of Ozone Layer Depletion</h2>
+        <p>The depletion of the ozone layer has serious consequences for life on Earth. Some of the effects include:</p>
+        <ul>
+            <li>Increased UV radiation reaching the Earth's surface</li>
+            <li>Higher rates of skin cancer and cataracts in humans</li>
+            <li>Harmful effects on marine ecosystems</li>
+            <li>Disruption of plant growth and agricultural production</li>
+        </ul>
+    </div>
+    <div class="content" id="solutions">
+        <h2>Solutions to Ozone Layer Depletion</h2>
+        <p>There are various solutions in place to address ozone layer depletion. Some of the most effective actions include:</p>
+        <ul>
+            <li>Phase-out of ozone-depleting substances (ODS) under international agreements like the Montreal Protocol</li>
+            <li>Promotion of alternatives to CFCs and halons</li>
+            <li>Increasing public awareness about the importance of the ozone layer and how to protect it</li>
+        </ul>
+        <button onclick="alert('Together, we can protect the ozone layer!')">Take Action</button>
+    </div>
+    <div class="content" id="ozone-image">
+        <h2>Ozone Layer Visuals</h2>
+        <p>Here is an image of the ozone layer from NASA's Ozone Watch:</p>
+        <img class="ozone-image" src="https://www.nasa.gov/sites/default/files/thumbnails/image/1_0.jpg?itok=9sNx_muy" alt="Ozone Layer Image">
+        <p>Click the link to view more details: 
+        <a href="https://ozonewatch.gsfc.nasa.gov/Scripts/big_image.php?date=2011-09&hem=S" target="_blank">View Ozone Image</a></p>
+    </div>
+    <div class="chart-container">
+        <h2>Ozone Layer Depletion from 2000 to 2025</h2>
+        <canvas id="ozoneChart"></canvas>
+    </div>
+    <footer>
+        <p>&copy; 2025 Ozone Awareness Campaign. All rights reserved.</p>
+    </footer>
+    <script>
+        const years = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+        const ozoneLevels = [300, 295, 290, 285, 280, 275, 270, 265, 260, 255, 250, 245, 240, 235, 230, 225, 220, 215, 210, 205, 200, 195, 190, 185, 180, 175];
+        const ctx = document.getElementById('ozoneChart').getContext('2d');
+        const ozoneChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'Ozone Layer Thickness (Dobson Units)',
+                    data: ozoneLevels,
+                    borderColor: '#00796b',
+                    backgroundColor: 'rgba(0, 121, 107, 0.2)',
+                    fill: true,
+                    tension: 0.4,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        ticks: {
+                            stepSize: 5
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
